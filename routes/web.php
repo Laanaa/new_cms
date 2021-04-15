@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\HomeController;
 use App\http\Controllers\Article;
+use App\Http\Controllers\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,4 +80,10 @@ Route::get('/contact', function () {
     echo "For more information, please Contact 021-245-34456"; 
 });
 
+Route::resource('articles', ArticleController::class);
 
+Auth::routes();
+
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
